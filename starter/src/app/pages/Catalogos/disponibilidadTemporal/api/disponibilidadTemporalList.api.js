@@ -1,0 +1,35 @@
+// disponibilidadTemporal.api.js
+import axios from "axios";
+
+const disponibilidadApi = axios.create({
+    baseURL: 'http://localhost:8000/Catalogos/Disponibilidad-Temporal/'
+});
+
+// Obtener todos los profesionales de salud
+const profesionalesApi = axios.create({
+    baseURL: 'http://localhost:8000/Catalogos/Profesionales-Salud/'
+});
+
+// Obtener todos los consultorios
+const consultoriosApi = axios.create({
+    baseURL: 'http://localhost:8000/Catalogos/Consultorios/'
+});
+
+export const getAllConsultorios = () => consultoriosApi.get('/');
+
+export const getAllProfesionales = () => profesionalesApi.get('/');
+
+// Obtener todas las disponibilidades temporales
+export const getAllDisponibilidades = () => disponibilidadApi.get('/');
+
+// Crear nueva disponibilidad temporal
+export const createDisponibilidad = (disponibilidad) => disponibilidadApi.post('/', disponibilidad);
+
+// Obtener una disponibilidad por ID
+export const getDisponibilidadById = (id) => disponibilidadApi.get(`/${id}/`);
+
+// Actualizar una disponibilidad
+export const updateDisponibilidad = (id, disponibilidad) => disponibilidadApi.put(`/${id}/`, disponibilidad);
+
+// Eliminar una disponibilidad
+export const deleteDisponibilidad = (id) => disponibilidadApi.delete(`/${id}/`);

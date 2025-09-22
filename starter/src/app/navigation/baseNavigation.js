@@ -1,0 +1,32 @@
+import { NAV_TYPE_ITEM, } from "constants/app.constant";
+import DashboardsIcon from 'assets/dualicons/dashboards.svg?react'
+import ComponentsIcon from 'assets/dualicons/components.svg?react'
+import PrototypesIcon from 'assets/dualicons/prototypes.svg?react'
+
+export const baseNavigation = [
+    {
+        id: 'dashboards',
+        type: NAV_TYPE_ITEM,
+        path: '/dashboards',
+        title: 'Dashboards',
+        transKey: 'nav.dashboards.dashboards',
+        Icon: DashboardsIcon,
+    },
+    {
+        id: 'catalogos',
+        type: NAV_TYPE_ITEM,
+        path: '/Catalogos',
+        title: 'Catalogos',
+        transKey: 'Catalogos',
+        Icon: ComponentsIcon,
+    },
+    {
+        id: 'modulos',
+        type: NAV_TYPE_ITEM,
+        path: '/Modulos',
+        title: 'Modulos',
+        transKey: 'Modulos',
+        Icon: PrototypesIcon,
+    },
+    
+]

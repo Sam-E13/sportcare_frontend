@@ -1,0 +1,31 @@
+# Dependencias y build
+node_modules
+dist
+build
+
+# Archivos y carpetas de desarrollo
+demo
+.vscode
+.idea
+
+# Control de versiones
+.git
+.gitignore
+
+# Archivos de entorno
+.env
+.env.*
+
+# Logs y archivos temporales
+*.log
+npm-debug.log
+yarn-error.log
+.DS_Store
+
+# Copias de seguridad o dumps
+backup_postgre13.sql
+*.sql
+
+# Docker
+Dockerfile
+docker-compose.yml

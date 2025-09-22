@@ -1,0 +1,26 @@
+# Dependencias (NO deben ir al contenedor)
+node_modules
+
+# Archivos generados
+dist
+build
+
+# Archivos de entorno
+.env
+.env.*
+
+# Configuración del editor
+.vscode
+.idea
+
+# Archivos grandes innecesarios
+*.log
+*.zip
+*.map
+*.mp4
+*.jpg
+*.png
+
+# Otros
+.git
+.gitignore
