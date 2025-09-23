@@ -1,13 +1,14 @@
 # Etapa de construcción
-FROM node:18-alpine as build
+FROM node:20-alpine as build
 
 WORKDIR /app
 
 # Copiar package.json y package-lock.json
 COPY ./starter/package*.json ./
 
-# Instalar dependencias
-RUN npm ci --only=production
+# Limpiar caché de npm y instalar todas las dependencias (incluyendo devDependencies)
+RUN npm cache clean --force && \
+    npm install --legacy-peer-deps
 
 # Copiar el código fuente
 COPY ./starter/ ./
@@ -40,7 +41,7 @@ server {
     }
     
     # Configuración para assets estáticos
-    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)\$ {
         root /usr/share/nginx/html;
         expires 1y;
         add_header Cache-Control "public, immutable";
