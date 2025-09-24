@@ -1,13 +1,14 @@
-# Etapa de construcción
-FROM node:20-alpine as build
+# Etapa de construcción - Usando Node.js Debian en lugar de Alpine
+FROM node:20-slim as build
 
 WORKDIR /app
 
 # Copiar package.json y package-lock.json
 COPY ./starter/package*.json ./
 
-# Limpiar caché de npm y instalar todas las dependencias (incluyendo devDependencies)
+# Instalar todas las dependencias y limpiar cache
 RUN npm cache clean --force && \
+    rm -rf node_modules package-lock.json && \
     npm install --legacy-peer-deps
 
 # Copiar el código fuente
