@@ -24,7 +24,7 @@ ENV VITE_CITAS_API_URL=$VITE_CITAS_API_URL
 RUN npm run build
 
 # Etapa de producción
-FROM nginx:1.25-alpine
+FROM nginx:alpine
 
 # Copiar archivos construidos
 COPY --from=build /app/dist /usr/share/nginx/html

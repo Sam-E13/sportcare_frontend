@@ -221,7 +221,7 @@ export default function DeportesDatatable() {
           )}
         >
           <Toolbar table={table} onPrint={printAllDeportes} />
-          {/* <div
+          <div
             className={clsx(
               "transition-content flex grow flex-col pt-3",
               tableSettings.enableFullScreen
@@ -355,7 +355,6 @@ export default function DeportesDatatable() {
             </Card>
 
           </div>
-           */}
         </div>
       </div>
       {/* Componente oculto para impresión */}

@@ -6,8 +6,7 @@ dist
 build
 
 # Archivos de entorno
-.env
-.env.*
+
 
 # Configuración del editor
 .vscode
