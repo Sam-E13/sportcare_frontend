@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Update this URL to match your Django backend
-const JWT_HOST_API = 'http://localhost:8000/';
+const JWT_HOST_API = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/';
 
 const axiosInstance = axios.create({
   baseURL: JWT_HOST_API,
