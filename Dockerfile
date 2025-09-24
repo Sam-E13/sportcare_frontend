@@ -1,4 +1,4 @@
-# Etapa de construcción - Usando Node.js Debian en lugar de Alpine
+# Etapa de construcción
 FROM node:20-slim as build
 WORKDIR /app
 
@@ -22,29 +22,19 @@ ENV VITE_CITAS_API_URL=$VITE_CITAS_API_URL
 # Construir la aplicación
 RUN npm run build
 
-# Etapa de producción - LÍNEA CORREGIDA
-FROM nginx:1.25-alpine
+# Etapa de producción - USANDO SOLO NODE.JS
+FROM node:20-slim
 
-# Copiar archivos construidos
-COPY --from=build /app/dist /usr/share/nginx/html
+WORKDIR /app
 
-# Crear configuración de nginx
-RUN echo 'server {' > /etc/nginx/conf.d/default.conf && \
-    echo '    listen 80;' >> /etc/nginx/conf.d/default.conf && \
-    echo '    server_name localhost;' >> /etc/nginx/conf.d/default.conf && \
-    echo '    ' >> /etc/nginx/conf.d/default.conf && \
-    echo '    location / {' >> /etc/nginx/conf.d/default.conf && \
-    echo '        root /usr/share/nginx/html;' >> /etc/nginx/conf.d/default.conf && \
-    echo '        index index.html index.htm;' >> /etc/nginx/conf.d/default.conf && \
-    echo '        try_files $uri $uri/ /index.html;' >> /etc/nginx/conf.d/default.conf && \
-    echo '    }' >> /etc/nginx/conf.d/default.conf && \
-    echo '    ' >> /etc/nginx/conf.d/default.conf && \
-    echo '    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {' >> /etc/nginx/conf.d/default.conf && \
-    echo '        root /usr/share/nginx/html;' >> /etc/nginx/conf.d/default.conf && \
-    echo '        expires 1y;' >> /etc/nginx/conf.d/default.conf && \
-    echo '        add_header Cache-Control "public, immutable";' >> /etc/nginx/conf.d/default.conf && \
-    echo '    }' >> /etc/nginx/conf.d/default.conf && \
-    echo '}' >> /etc/nginx/conf.d/default.conf
+# Instalar serve globalmente
+RUN npm install -g serve
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Copiar archivos construidos desde la etapa de build
+COPY --from=build /app/dist ./dist
+
+# Exponer puerto 10000 (requerido por Render)
+EXPOSE 10000
+
+# Comando para servir la aplicación en el puerto que Render espera
+CMD ["serve", "-s", "dist", "-l", "10000"]
