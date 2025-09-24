@@ -26,7 +26,7 @@ import { SelectedRowsActions } from "./SelectedRowsActions";
 import { useThemeContext } from "app/contexts/theme/context";
 import { getAllDeportes, updateDeporte, deleteDeporte } from "./api/deporteList.api";
 import { DeportePrintView } from "./actions/DeportePrintView";
-// Añadir este import
+// Añadir este import 
 // ----------------------------------------------------------------------
 
 export default function DeportesDatatable() {
