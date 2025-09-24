@@ -11,7 +11,7 @@ export default defineConfig({
     react(), 
     jsconfigPaths(), 
     svgr(),
-    // eslint() // Comentado temporalmente para evitar errores de build
+    eslint() // Comentado temporalmente para evitar errores de build
   ],
   build: {
     rollupOptions: {
