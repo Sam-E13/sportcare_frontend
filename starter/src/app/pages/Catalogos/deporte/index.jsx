@@ -28,7 +28,7 @@ import { getAllDeportes, updateDeporte, deleteDeporte } from "./api/deporteList.
 import { DeportePrintView } from "./actions/DeportePrintView";
 // Añadir este import 
 // ----------------------------------------------------------------------
-
+ 
 export default function DeportesDatatable() {
   const { cardSkin } = useThemeContext();
 
@@ -221,14 +221,14 @@ export default function DeportesDatatable() {
           )}
         >
           <Toolbar table={table} onPrint={printAllDeportes} />
-          <div
+          {/* <div
             className={clsx(
               "transition-content flex grow flex-col pt-3",
               tableSettings.enableFullScreen
                 ? "overflow-hidden"
                 : "px-[--margin-x]"
             )}
-          >
+          > 
 
             <Card
               ref={printRef}
@@ -355,6 +355,7 @@ export default function DeportesDatatable() {
             </Card>
 
           </div>
+           */}
         </div>
       </div>
       {/* Componente oculto para impresión */}
