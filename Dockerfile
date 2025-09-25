@@ -1,5 +1,5 @@
-# Etapa de construcción
-FROM node:20-slim as build
+# Etapa de construcción - usando registro alternativo
+FROM public.ecr.aws/docker/library/node:20-slim as build
 WORKDIR /app
 
 # Copiar package.json y package-lock.json
@@ -22,19 +22,19 @@ ENV VITE_CITAS_API_URL=$VITE_CITAS_API_URL
 # Construir la aplicación
 RUN npm run build
 
-# Etapa de producción - USANDO SOLO NODE.JS
-FROM node:20-slim
+# Etapa de producción
+FROM public.ecr.aws/docker/library/node:20-slim
 
 WORKDIR /app
 
 # Instalar serve globalmente
 RUN npm install -g serve
 
-# Copiar archivos construidos desde la etapa de build
+# Copiar archivos construidos
 COPY --from=build /app/dist ./dist
 
-# Exponer puerto 10000 (requerido por Render)
+# Exponer puerto 10000
 EXPOSE 10000
 
-# Comando para servir la aplicación en el puerto que Render espera
+# Comando para servir la aplicación
 CMD ["serve", "-s", "dist", "-l", "10000"]
