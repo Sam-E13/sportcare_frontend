@@ -3,6 +3,8 @@ import { Navigate } from "react-router";
 import { AppLayout } from "app/layouts/AppLayout";
 import { DynamicLayout } from "app/layouts/DynamicLayout";
 import AuthGuard from "middleware/AuthGuard";
+import DeportesComponent from "app/pages/catalogos/deporte/index";
+
 
 // ----------------------------------------------------------------------
 
@@ -53,9 +55,7 @@ const protectedRoutes = {
           children: [
             {
               path: "deporte",
-              lazy: async () => ({
-                Component: (await import("app/pages/catalogos/deporte/index.jsx")).default,
-              }),
+              Component: DeportesComponent,
             },
             {
               path: "grupoDeportivo",
