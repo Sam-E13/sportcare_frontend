@@ -30,6 +30,9 @@ import { DeportePrintView } from "./actions/DeportePrintView";
 // ----------------------------------------------------------------------
  
 export default function DeportesDatatable() {
+  console.log('=== COMPONENTE DEPORTES CARGADO ===');
+  console.log('getAllDeportes function:', getAllDeportes);
+
   const { cardSkin } = useThemeContext();
 
   const [deportes, setDeportes] = useState([]);
@@ -73,12 +76,18 @@ export default function DeportesDatatable() {
 
   // Cargar datos de la API
   useEffect(() => {
+    console.log('=== useEffect DE DEPORTES EJECUTÁNDOSE ===');
     async function loadDeportes() {
+      console.log('=== INICIANDO loadDeportes ===');
       try {
+        setLoading(true);
+        console.log('=== ANTES DE LLAMAR getAllDeportes ===');
         const response = await getAllDeportes();
+        console.log('=== RESPUESTA RECIBIDA ===', response);
+        console.log('=== DATOS DE LA RESPUESTA ===', response.data);
         setDeportes(response.data);
       } catch (err) {
-        console.error("Error cargando deportes:", err);
+        console.error('=== ERROR EN loadDeportes ===', err);
         setError("Error al cargar los deportes");
       } finally {
         setLoading(false);
