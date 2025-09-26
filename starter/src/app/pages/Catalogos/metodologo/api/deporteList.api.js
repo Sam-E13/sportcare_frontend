@@ -1,12 +1,14 @@
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 const deportesApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Deportes/'
+    baseURL: `${API_BASE_URL}/Catalogos/Deportes/`
 });
 
-// API para Grupos Deportivos
+// API para Grupos Deportivos 
 const grupoDeportivoApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/GruposDeportivos/'
+    baseURL: `${API_BASE_URL}/Catalogos/GruposDeportivos/`
 });
 
 // Operaciones CRUD para Deportes
