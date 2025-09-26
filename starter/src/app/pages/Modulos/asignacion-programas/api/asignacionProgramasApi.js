@@ -1,8 +1,10 @@
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 // Configuración base de las APIs
 const atletasApi = axios.create({
-  baseURL: 'http://localhost:8000/Catalogos/Atletas/',
+  baseURL: `${API_BASE_URL}/Catalogos/Atletas/`,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -10,7 +12,7 @@ const atletasApi = axios.create({
 });
 
 const programaEntrenamientoApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Programas-Entrenamiento/',
+    baseURL: `${API_BASE_URL}/Catalogos/Programas-Entrenamiento/`,
     timeout: 10000,
     headers: {
       'Content-Type': 'application/json',
@@ -18,7 +20,7 @@ const programaEntrenamientoApi = axios.create({
 });
 
 const AsignacionProgramasApi = axios.create({
-    baseURL: 'http://localhost:8000/Modulos/Asignacion-de-Programas-de-Entrenamiento/',
+    baseURL: `${API_BASE_URL}/Modulos/Asignacion-de-Programas-de-Entrenamiento/`,
     timeout: 10000,
     headers: {
       'Content-Type': 'application/json',

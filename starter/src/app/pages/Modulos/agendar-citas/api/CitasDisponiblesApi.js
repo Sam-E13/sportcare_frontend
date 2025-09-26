@@ -1,27 +1,29 @@
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 const citasDisponiblesApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Citas-Disponibles/'
+    baseURL: `${API_BASE_URL}/Catalogos/Citas-Disponibles/`
 });
 
 const profesionalesSaludApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Profesionales-Salud/'
+    baseURL: `${API_BASE_URL}/Catalogos/Profesionales-Salud/`
 });
 
 const areasApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Areas/'
+    baseURL: `${API_BASE_URL}/Catalogos/Areas/`
 });
 
 const consultoriosApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Consultorios/'
+    baseURL: `${API_BASE_URL}/Catalogos/Consultorios/`
 });
 
 const citasApi = axios.create({
-  baseURL: 'http://localhost:8000/Modulos/Citas/'
+  baseURL: `${API_BASE_URL}/Modulos/Citas/`
 });
 
 const atletasApi = axios.create({
-  baseURL: 'http://localhost:8000/Catalogos/Atletas/'
+  baseURL: `${API_BASE_URL}/Catalogos/Atletas/`
 });
 
 export const getAtletaByUserId = (userId) => atletasApi.get(`/?user=${userId}`);

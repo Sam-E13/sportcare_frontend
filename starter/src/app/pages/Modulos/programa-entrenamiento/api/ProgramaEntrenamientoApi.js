@@ -1,8 +1,10 @@
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 const programaEntrenamientoApi = axios.create({
     // Asegúrate que la URL base sea la correcta para tu API de Programas de Entrenamiento
-    baseURL: 'http://127.0.0.1:8000/Catalogos/Programas-Entrenamiento/'
+    baseURL: `${API_BASE_URL}/Catalogos/Programas-Entrenamiento/`
 });
 
 
@@ -37,14 +39,14 @@ export const deletePrograma = (id) => programaEntrenamientoApi.delete(`${id}/`);
 // --- Funciones relacionadas (ej. para obtener datos para los formularios) ---
 
 const EntrenadoresApi = axios.create({
-  baseURL: 'http://127.0.0.1:8000/Catalogos/Entrenadores'
+  baseURL: `${API_BASE_URL}/Catalogos/Entrenadores`
 })
 
 // Obtener entrenadores 
 export const getAllEntrenadores = () => EntrenadoresApi.get('/');
 
 const DeportesApi = axios.create({
-  baseURL: 'http://127.0.0.1:8000/Catalogos/Deportes'
+  baseURL: `${API_BASE_URL}/Catalogos/Deportes`
 })
 
 

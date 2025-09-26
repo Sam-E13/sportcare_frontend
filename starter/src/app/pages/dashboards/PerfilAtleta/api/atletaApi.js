@@ -1,17 +1,17 @@
 import axios from "axios";
 
-const baseURL = 'http://localhost:8000/';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 const atletaApi = axios.create({
-    baseURL: baseURL + 'Catalogos/Atletas/'
+    baseURL: `${API_BASE_URL}/Catalogos/Atletas/`
 });
 
 const categoriaApi = axios.create({
-    baseURL: baseURL + 'Catalogos/Categorias/'
+    baseURL: `${API_BASE_URL}/Catalogos/Categorias/`
 });
 
 const deporteApi = axios.create({
-    baseURL: baseURL + 'Catalogos/Deportes/'
+    baseURL: `${API_BASE_URL}/Catalogos/Deportes/`
 });
 
 // Operaciones básicas de atletas

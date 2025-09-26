@@ -1,20 +1,22 @@
 
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 const consultasApi = axios.create({
-    baseURL: 'http://localhost:8000/Modulos/Consultas/'
+    baseURL: `${API_BASE_URL}/Modulos/Consultas/`
 });
 
 const profesionalesSaludApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Profesionales-Salud/'
+    baseURL: `${API_BASE_URL}/Catalogos/Profesionales-Salud/`
 });
 
 const atletasApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Atletas/'
+    baseURL: `${API_BASE_URL}/Catalogos/Atletas/`
 });
 
 const citasApi = axios.create({
-    baseURL: 'http://localhost:8000/Modulos/Citas/'
+    baseURL: `${API_BASE_URL}/Modulos/Citas/`
 });
 
 

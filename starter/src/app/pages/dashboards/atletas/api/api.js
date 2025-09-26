@@ -1,17 +1,19 @@
 // api.js
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 const citasApi = axios.create({
-    baseURL: "http://localhost:8000/Modulos/Citas/",
-});
+    baseURL: `${API_BASE_URL}/Modulos/Citas/`,
+});  
 
 const atletasApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Atletas/'
+    baseURL: `${API_BASE_URL}Catalogos/Atletas/`
 });
 
 // Nueva instancia para el catálogo de slots disponibles
 const catalogosApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/'
+    baseURL: `${API_BASE_URL}/Catalogos/`
 });
 
 // Obtener atleta por userID
