@@ -54,9 +54,18 @@ const protectedRoutes = {
           children: [
             {
               path: "deporte",
-              lazy: async () => ({
-                Component: (await import("app/pages/catalogos/deporte")).default,
-              }),
+              lazy: async () => {
+                try {
+                  console.log('=== INTENTANDO IMPORTAR DEPORTE ===');
+                  const module = await import("app/pages/catalogos/deporte");
+                  console.log('=== MÓDULO IMPORTADO EXITOSAMENTE ===', module);
+                  console.log('=== DEFAULT EXPORT ===', module.default);
+                  return { Component: module.default };
+                } catch (error) {
+                  console.error('=== ERROR EN IMPORT ===', error);
+                  throw error;
+                }
+              },
             },
             {
               path: "grupoDeportivo",
