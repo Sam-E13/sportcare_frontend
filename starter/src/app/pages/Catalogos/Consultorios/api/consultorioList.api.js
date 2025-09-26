@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 const consultorioApi = axios.create({
-  baseURL: 'http://localhost:8000/Catalogos/Consultorios/'
+  baseURL: `${API_BASE_URL}/Catalogos/Consultorios/`
 });
 
 export const getAllConsultorios = async () => {

@@ -1,21 +1,23 @@
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 const metodologosApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/metodologos/'
+    baseURL:  `${API_BASE_URL}/Catalogos/metodologos/`
 });
 
 // API para grupos deportivos
 const gruposApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/GruposDeportivos/' 
+    baseURL: `${API_BASE_URL}/Catalogos/GruposDeportivos/`
 });
 
 // API para deportes
-const deportesApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Deportes/' 
+const deportesApi = axios.create({ 
+    baseURL: `${API_BASE_URL}/Catalogos/Deportes/`
 });
 
 const usuariosApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Usuarios/'
+    baseURL: `${API_BASE_URL}/Catalogos/Usuarios/`
 });
 
 // Operaciones CRUD para Metodólogos

@@ -1,22 +1,20 @@
 // entrenadorList.api.js
 import axios from "axios";
 
-const entrenadorConta = axios.create({
-    baseURL: 'http://localhost:8000/'  // ← Solo la base del servidor
-});
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 const entrenadorApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Entrenadores/'
+    baseURL: `${API_BASE_URL}/Catalogos/Entrenadores/`
 });
 
 // Para usuarios
 const userApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Usuarios/'
+    baseURL: `${API_BASE_URL}/Catalogos/Usuarios/`
 });
 
 // Para deportes (disciplinas)
 const deporteApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Deportes/'
+    baseURL: `${API_BASE_URL}/Catalogos/Deportes/`
 });
 
 // Operaciones CRUD para entrenadores

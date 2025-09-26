@@ -1,18 +1,20 @@
 // disponibilidadTemporal.api.js
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
 const disponibilidadApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Disponibilidad-Temporal/'
+    baseURL: `${API_BASE_URL}/Catalogos/Disponibilidad-Temporal/`
 });
 
 // Obtener todos los profesionales de salud
 const profesionalesApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Profesionales-Salud/'
+    baseURL: `${API_BASE_URL}/Catalogos/Profesionales-Salud/`
 });
 
 // Obtener todos los consultorios
 const consultoriosApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Consultorios/'
+    baseURL: `${API_BASE_URL}/Catalogos/Consultorios/`
 });
 
 export const getAllConsultorios = () => consultoriosApi.get('/');

@@ -1,27 +1,25 @@
 // atletaList.api.js
 import axios from "axios";
 
-const atletaConta = axios.create({
-    baseURL: 'http://localhost:8000/'  // ← Solo la base del servidor
-});
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 const atletaApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Atletas/'
+    baseURL: `${API_BASE_URL}/Catalogos/Atletas/`
 });
 
 // Para usuarios
 const userApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Usuarios/'
+    baseURL: `${API_BASE_URL}/Catalogos/Usuarios/`
 });
 
 // Para categorías
 const categoriaApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Categorias/'
+    baseURL: `${API_BASE_URL}/Catalogos/Categorias/`
 });
 
 // Para deportes
 const deporteApi = axios.create({
-    baseURL: 'http://localhost:8000/Catalogos/Deportes/'
+    baseURL: `${API_BASE_URL}/Catalogos/Deportes/`
 });
 
 export const getAllAtletas = () => atletaApi.get('/');
