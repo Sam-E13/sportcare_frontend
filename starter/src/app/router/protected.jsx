@@ -61,37 +61,37 @@ const protectedRoutes = {
             {
               path: "grupoDeportivo",
               lazy: async () => ({
-                Component: (await import("app/pages/catalogos/grupoDeportivo")).default,
+                Component: (await import("app/pages/Catalogos/grupoDeportivo")).default,
               }),
             }, 
             {
               path: "metodologo",
               lazy: async () => ({
-                Component: (await import("app/pages/catalogos/metodologo")).default,
+                Component: (await import("app/pages/Catalogos/metodologo")).default,
               }),
             }, 
             {
               path: "horarios",
               lazy: async () => ({
-                Component: (await import("app/pages/catalogos/horarios")).default,
+                Component: (await import("app/pages/Catalogos/horarios")).default,
               }),
             },
             {
               path: "disponibilidad-temporal",
               lazy: async () => ({
-                Component: (await import("app/pages/catalogos/disponibilidadTemporal")).default,
+                Component: (await import("app/pages/Catalogos/disponibilidadTemporal")).default,
               }),
             },
             {
               path: "atleta",
               lazy: async () => ({
-                Component: (await import("app/pages/catalogos/Atleta")).default,
+                Component: (await import("app/pages/Catalogos/Atleta")).default,
               }),
             },
             {
               path: "entrenadores",
               lazy: async () => ({
-                Component: (await import("app/pages/catalogos/entrenadores")).default,
+                Component: (await import("app/pages/Catalogos/entrenadores")).default,
               }),
             },
             {
