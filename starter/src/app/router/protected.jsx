@@ -137,7 +137,7 @@ const protectedRoutes = {
             {
               path: "agendar-citas",
               lazy: async () => ({
-                Component: (await import("app/pages/Modulos/agendar-citas")).default,
+                Component: (await import("app/pages/Modulos/ReportesCitas")).default,
               }),
             },
             //CONSULTAS
