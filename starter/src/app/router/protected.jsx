@@ -55,7 +55,7 @@ const protectedRoutes = {
             {
               path: "deporte",
               lazy: async () => ({
-                Component: (await import("../pages/catalogos/deporte")).default,
+                Component: (await import("app/pages/catalogos/deporte")).default,
               }),
             },
             {
