@@ -10,8 +10,10 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Button, Input } from "components/ui";
 import { toast } from "sonner";
 
+const API_BASE_URL = import.meta.env.VITE_CITAS_API_URL || "http://localhost:8001";
+
 // Usar una variable de entorno o configuración para la URL base
-const API_GENERAR_REPORTE_PDF = "http://localhost:8001/Citas/api/generar-reporte-pdf/";
+const API_GENERAR_REPORTE_PDF = `${API_BASE_URL}/Citas/api/generar-reporte-pdf/`;
 
 const ReporteModal = ({ 
   showModal, 
