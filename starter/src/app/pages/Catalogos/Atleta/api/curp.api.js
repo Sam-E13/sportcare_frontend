@@ -3,15 +3,11 @@ import axios from "axios";
 // Configuración para la API de Node.js
 // Usa la variable de entorno o localhost por defecto
 
-console.log('🔍 VITE_API_URL:', import.meta.env.VITE_API_URL);
-console.log('🔍 Todas las variables:', import.meta.env);
-
 const nodeApi = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000',
+  baseURL: 'https://validar-curp.onrender.com',
   timeout: 5000
 });
 
-console.log('🔍 baseURL final:', nodeApi.defaults.baseURL);
 
 /**
  * Valida una CURP usando el servicio Node.js
