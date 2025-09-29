@@ -1,9 +1,12 @@
 import axios from "axios";
+
 // Configuración para la API de Node.js
+// Usa la variable de entorno o localhost por defecto
 const nodeApi = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000',
   timeout: 5000
 });
+
 /**
  * Valida una CURP usando el servicio Node.js
  * @param {string} curp - La CURP a validar 
