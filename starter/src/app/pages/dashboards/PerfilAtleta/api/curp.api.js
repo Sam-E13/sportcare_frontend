@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Configuración para la API de Node.js
 const nodeApi = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://validar-curp.onrender.com',
   timeout: 5000
 });
 
