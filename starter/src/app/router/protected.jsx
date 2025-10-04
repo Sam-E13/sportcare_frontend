@@ -162,7 +162,7 @@ const protectedRoutes = {
             {
               path: "reportesConsultas",
               lazy: async () => ({
-                Component: (await import("app/pages/Modulos/reportesConsultas")).default,
+                Component: (await import("app/pages/Modulos/ReportesConsultas")).default,
               }),
             },
             {
