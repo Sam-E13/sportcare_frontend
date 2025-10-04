@@ -1,8 +1,8 @@
 // Configuración de endpoints
 const API_ENDPOINTS = {
-  estadisticas: "http://localhost:8002/Consultas/api/estadisticas-consultas/",
-  filtros: "http://localhost:8002/Consultas/api/filtros-consulta/",
-  reporte: "http://localhost:8002/Consultas/generar-reporte-consultas/"
+  estadisticas: "https://reportes-consultas.onrender.com/Consultas/api/estadisticas-consultas/",
+  filtros: "https://reportes-consultas.onrender.com/Consultas/api/filtros-consulta/",
+  reporte: "https://reportes-consultas.onrender.com/Consultas/generar-reporte-consultas/"
 };
 
 // Obtener estadísticas de consultas

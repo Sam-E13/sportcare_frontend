@@ -11,7 +11,7 @@ import { Button, Input } from "components/ui";
 import { toast } from "sonner";
 
 // URL para generar el reporte PDF de consultas
-const API_GENERAR_REPORTE_CONSULTAS_PDF = "http://localhost:8002/Consultas/generar-reporte-consultas/";
+const API_GENERAR_REPORTE_CONSULTAS_PDF = "https://reportes-consultas.onrender.com/Consultas/generar-reporte-consultas/";
 
 const ReporteConsultaModal = ({ 
   showModal, 
